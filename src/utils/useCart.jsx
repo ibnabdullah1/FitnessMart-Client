@@ -18,6 +18,12 @@ const useCart = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+  const handleClearShoppingCart = () => {
+    setCartLength(0);
+    setCartProducts([]);
+    setItemQuantity(0);
+    localStorage.removeItem("shoppingCarts");
+  };
 
   const handleDeleteToCart = (id) => {
     const updatedCart = cartProducts.filter((product) => product._id !== id);
@@ -39,7 +45,8 @@ const useCart = () => {
     if (isExistItem) {
       const existingItem = cartData[existingItemIndex];
       const updatedQuantity = existingItem.itemQuantity + itemQuantity;
-      const updatedSubTotal = existingItem.subtotal + data.price + itemQuantity;
+      const updatedSubTotal = existingItem.subtotal + data.price * itemQuantity;
+      console.log(updatedQuantity, updatedSubTotal);
       if (updatedQuantity > data.stock) {
         return toast.error("Quantity exceeds stock available");
       }
@@ -111,6 +118,7 @@ const useCart = () => {
     itemQuantity,
     handleQuantityDown,
     handleQuantityUp,
+    handleClearShoppingCart,
   };
 };
 

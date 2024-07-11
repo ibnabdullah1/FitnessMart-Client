@@ -1,15 +1,25 @@
 import { Drawer, IconButton, Typography } from "@material-tailwind/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import useCart from "../../utils/useCart";
 import "./CartDrawer.css";
 import CartItem from "./CartItem";
 export function CartDrawer() {
   const [openRight, setOpenRight] = useState(false);
+  const [cartProducts, setCartProducts] = useState([]);
   const openDrawerRight = () => setOpenRight(true);
   const closeDrawerRight = () => setOpenRight(false);
-  const { cartLength } = useCart();
-
+  const { cartLength, handleDeleteToCart } = useCart();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const shoppingCart = localStorage.getItem("shoppingCarts");
+      if (shoppingCart) {
+        const parsedCart = JSON.parse(shoppingCart);
+        setCartProducts(parsedCart);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <React.Fragment>
       <div className="flex flex-wrap gap-4">
@@ -56,7 +66,10 @@ export function CartDrawer() {
             </svg>
           </IconButton>
         </div>
-        <CartItem />
+        <CartItem
+          cartProducts={cartProducts}
+          handleDeleteToCart={handleDeleteToCart}
+        />
       </Drawer>
     </React.Fragment>
   );

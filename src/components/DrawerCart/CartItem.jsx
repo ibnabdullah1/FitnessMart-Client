@@ -1,13 +1,12 @@
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import useCart from "../../utils/useCart";
 
-const CartItem = () => {
-  const { cartProducts, handleDeleteToCart } = useCart();
+const CartItem = ({ cartProducts, handleDeleteToCart }) => {
   const Subtotal = cartProducts?.reduce(
     (acc, product) => acc + product.price * product.itemQuantity,
     0
   );
+  console.log(cartProducts);
   const shippingCost = Subtotal >= 1 ? 20 : 0;
   const total = Subtotal + shippingCost;
 

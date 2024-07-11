@@ -13,6 +13,7 @@
     "@material-tailwind/react": "^2.1.9",
     "@reduxjs/toolkit": "^2.2.6",
     "@stripe/react-stripe-js": "^2.7.3",
+    "axios": "^1.7.2",
     "circular-json": "^0.5.9",
     "dotenv": "^16.4.5",
     "localforage": "^1.10.0",

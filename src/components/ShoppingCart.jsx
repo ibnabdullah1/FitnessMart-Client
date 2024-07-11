@@ -1,17 +1,24 @@
-import { RxMinus, RxPlus } from "react-icons/rx";
+import { RxCross2, RxMinus, RxPlus } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import Swal from "sweetalert2";
 import useCart from "../utils/useCart";
 import SectionBanner from "./SectionBanner";
 
 const ShoppingCart = () => {
-  const { cartProducts, handleQuantityDown, handleQuantityUp } = useCart();
+  const {
+    cartProducts,
+    handleQuantityDown,
+    handleQuantityUp,
+    setCartProducts,
+  } = useCart();
 
-  const total = parseInt(
-    cartProducts
-      .reduce((total, item) => total + parseFloat(item?.subtotal), 0)
-      .toFixed(0)
+  const total = Number(
+    cartProducts.reduce((acc, item) => acc + item?.subtotal, 0).toFixed(0)
   );
+
+  console.log(cartProducts);
+
   const shippingCost = total >= 1 ? 20 : 0;
 
   const handleDelete = (id) => {
@@ -20,12 +27,17 @@ const ShoppingCart = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#79C044",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result?.isConfirmed) {
-        console.log("object");
+        const updatedCart = cartProducts.filter(
+          (product) => product._id !== id
+        );
+        setCartProducts(updatedCart);
+        localStorage.setItem("shoppingCarts", JSON.stringify(updatedCart));
+        toast.success("Deleted product successfully from cart");
       }
     });
   };
@@ -111,6 +123,12 @@ const ShoppingCart = () => {
                           {item?.price * item.itemQuantity}.00
                         </p>
                       </div>
+                      <button
+                        onClick={() => handleDelete(item._id)}
+                        className="text-primary hover:text-white bg-primary/10 hover:bg-primary/50 hover p-1 rounded-full"
+                      >
+                        <RxCross2 className="text-xl" />
+                      </button>
                     </div>
                   ))}
               </div>
@@ -179,7 +197,7 @@ const ShoppingCart = () => {
                 </div>
 
                 {cartProducts.length > 0 ? (
-                  <Link to={"/dashboard/checkout"}>
+                  <Link to={"/checkout"}>
                     <button className="block w-full py-4 font-bold text-center text-gray-100 uppercase bg-primary/80 rounded-md hover:bg-primary/100">
                       Checkout
                     </button>
