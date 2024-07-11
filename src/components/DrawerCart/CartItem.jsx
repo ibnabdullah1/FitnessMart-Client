@@ -6,7 +6,6 @@ const CartItem = ({ cartProducts, handleDeleteToCart }) => {
     (acc, product) => acc + product.price * product.itemQuantity,
     0
   );
-  console.log(cartProducts);
   const shippingCost = Subtotal >= 1 ? 20 : 0;
   const total = Subtotal + shippingCost;
 

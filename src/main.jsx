@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
-import { Toaster } from "sonner";
 import "./index.css";
 import { store } from "./redux/features/store";
 import { router } from "./routes/routes";

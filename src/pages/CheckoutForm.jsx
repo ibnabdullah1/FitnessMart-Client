@@ -1,11 +1,14 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
+import { FaSpinner } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../utils/useAxiosPublic";
 import useCart from "../utils/useCart";
-import { useNavigate } from "react-router-dom";
+
 const CheckoutForm = () => {
-  const { cartProducts, handleClearShoppingCart } = useCart();
+  const { cartProducts, handleClearShoppingCart, handleCompleteOrder } =
+    useCart();
   const subTotal = Number(
     cartProducts.reduce((acc, item) => acc + item?.subtotal, 0).toFixed(0)
   );
@@ -13,10 +16,14 @@ const CheckoutForm = () => {
   const shippingCost = subTotal >= 1 ? 20 : 0;
   const totalCost = subTotal + shippingCost;
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
-  const [transactionId, setTransactionId] = useState("");
+  const [transactionId, setTransactionId] = useState(
+    "pi_3PbNuUC1pZIWKl2d1K3E1CmH"
+  );
+
   const axiosPublic = useAxiosPublic();
   useEffect(() => {
     if (totalCost > 0) {
@@ -28,13 +35,36 @@ const CheckoutForm = () => {
     }
   }, [axiosPublic, totalCost]);
 
+  const orderData = {
+    orderId: transactionId,
+    items: cartProducts.map((product) => ({
+      productId: product._id,
+      name: product.name,
+      quantity: product.itemQuantity,
+      price: product.price,
+      total: product.itemQuantity * product.price,
+    })),
+    payment: {
+      method: "stripe",
+      status: "Pending",
+    },
+    orderStatus: "Processing",
+    orderDate: new Date().toISOString(),
+    totalAmount: cartProducts.reduce(
+      (acc, product) => acc + product.itemQuantity * product.price,
+      0
+    ),
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) {
+      setLoading(false);
       return;
     }
     const card = elements.getElement(CardElement);
     if (!card) {
+      setLoading(false);
       return;
     }
 
@@ -43,9 +73,11 @@ const CheckoutForm = () => {
       card,
     });
     if (error) {
+      setLoading(false);
       setError(error.message);
     } else {
       setError("");
+      setLoading(true);
     }
 
     // confirm payment
@@ -55,12 +87,14 @@ const CheckoutForm = () => {
           card: card,
         },
       });
-
+    setLoading(true);
     if (paymentIntent?.status === "succeeded") {
-      setTransactionId(paymentIntent.id);
-      toast.success("Payment successful");
+      setTransactionId(paymentIntent?.id);
+      handleCompleteOrder(orderData);
       handleClearShoppingCart();
-      navigate("/");
+      navigate("/order-history");
+      toast.success("Payment successful");
+      setLoading(false);
     }
   };
 
@@ -124,11 +158,16 @@ const CheckoutForm = () => {
               ${totalCost}
             </span>
           </div>
+
           <button
-            className="bg-primary w-full mt-3 px-16 py-2 rounded text-white"
+            className="bg-primary w-full mt-3 flex justify-center items-center px-16 py-2 rounded text-white"
             type="submit"
           >
-            Pay
+            {loading ? (
+              <FaSpinner className="animate-spin text-white " />
+            ) : (
+              "Pay"
+            )}
           </button>
         </div>
       </div>

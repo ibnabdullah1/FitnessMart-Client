@@ -1,18 +1,30 @@
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 
 const useCart = () => {
   const [cartLength, setCartLength] = useState(0);
   const [cartProducts, setCartProducts] = useState([]);
+  const [orderProducts, setOrderProducts] = useState([]);
   const [itemQuantity, setItemQuantity] = useState(0);
   const existingCart = localStorage.getItem("shoppingCarts");
   let cartData = existingCart ? JSON.parse(existingCart) : [];
+  const existingOrder = localStorage.getItem("orders");
+  let orderData = existingOrder ? JSON.parse(existingOrder) : [];
+
+  const handleCompleteOrder = (data) => {
+    orderData.push(data);
+    localStorage.setItem("orders", JSON.stringify(orderData));
+    toast.success("Order completed");
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       const shoppingCart = localStorage.getItem("shoppingCarts");
+      const orders = localStorage.getItem("orders");
       if (shoppingCart) {
         const parsedCart = JSON.parse(shoppingCart);
         setCartProducts(parsedCart);
+        setOrderProducts(orders);
         setCartLength(parsedCart?.length || 0);
       }
     }, 1000);
@@ -119,6 +131,8 @@ const useCart = () => {
     handleQuantityDown,
     handleQuantityUp,
     handleClearShoppingCart,
+    handleCompleteOrder,
+    orderProducts,
   };
 };
 

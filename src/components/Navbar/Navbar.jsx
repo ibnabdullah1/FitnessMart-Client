@@ -113,6 +113,11 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="">
+                <Link to={"/payment-history"} className="cursor-pointer">
+                  <span>Payment History</span>
+                </Link>
+              </li>
+              <li className="">
                 <Link className="cursor-pointer">
                   <span>FAQ</span>
                 </Link>

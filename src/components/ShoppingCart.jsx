@@ -1,6 +1,9 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { BsCashCoin } from "react-icons/bs";
+import { FaStripe } from "react-icons/fa6";
 import { RxCross2, RxMinus, RxPlus } from "react-icons/rx";
-import { Link } from "react-router-dom";
-import { toast } from "sonner";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useCart from "../utils/useCart";
 import SectionBanner from "./SectionBanner";
@@ -11,13 +14,13 @@ const ShoppingCart = () => {
     handleQuantityDown,
     handleQuantityUp,
     setCartProducts,
+    handleCompleteOrder,
   } = useCart();
-
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const navigate = useNavigate();
   const total = Number(
     cartProducts.reduce((acc, item) => acc + item?.subtotal, 0).toFixed(0)
   );
-
-  console.log(cartProducts);
 
   const shippingCost = total >= 1 ? 20 : 0;
 
@@ -40,6 +43,30 @@ const ShoppingCart = () => {
         toast.success("Deleted product successfully from cart");
       }
     });
+  };
+  const cashOnDeliveryOrder = () => {
+    const orderData = {
+      orderId: "Unpaid",
+      items: cartProducts.map((product) => ({
+        productId: product._id,
+        name: product.name,
+        quantity: product.itemQuantity,
+        price: product.price,
+        total: product.itemQuantity * product.price,
+      })),
+      payment: {
+        method: "Cash on Delivery",
+        status: "Pending",
+      },
+      orderStatus: "Processing",
+      orderDate: new Date().toISOString(),
+      totalAmount: cartProducts.reduce(
+        (acc, product) => acc + product.itemQuantity * product.price,
+        0
+      ),
+    };
+    handleCompleteOrder(orderData);
+    navigate("/order-history");
   };
 
   return (
@@ -196,14 +223,46 @@ const ShoppingCart = () => {
                   </a>
                 </div>
 
-                {cartProducts.length > 0 ? (
-                  <Link to={"/checkout"}>
+                <div className="space-y-2 py-4">
+                  <label className="has-[:checked]:bg-white/30 border border-secondary/10 has-[:checked]:text-primary has-[:checked]:ring-none has-[:checked]:ring-1 has-[:checked]:ring-primary cursor-pointer py-2 px-4 rounded-md flex gap-3 items-center">
+                    <input
+                      type="radio"
+                      name="payment"
+                      onClick={() => setPaymentMethod("cash")}
+                      className="checked:border-primary h-5 w-5"
+                    />
+                    <div className="flex items-center gap-3">
+                      <BsCashCoin />
+                      <h2 className="text-lg">Cash On Delivery</h2>
+                    </div>
+                  </label>
+                  <label className="has-[:checked]:bg-white/30 border border-secondary/10 has-[:checked]:text-primary has-[:checked]:ring-none has-[:checked]:ring-1 has-[:checked]:ring-primary cursor-pointer py-2 px-4 rounded-md flex gap-3 items-center">
+                    <input
+                      type="radio"
+                      name="payment"
+                      onClick={() => setPaymentMethod("stripe")}
+                      className="checked:border-primary h-5 w-5"
+                    />
+                    <div className="flex items-center gap-3">
+                      <FaStripe className="text-3xl" />
+                    </div>
+                  </label>
+                </div>
+                {cartProducts.length > 0 && paymentMethod === "cash" ? (
+                  <button
+                    onClick={cashOnDeliveryOrder}
+                    className="block w-full py-4 font-bold text-center text-gray-100 uppercase bg-primary/80 rounded-md hover:bg-primary/100"
+                  >
+                    Place Order
+                  </button>
+                ) : cartProducts.length > 0 && paymentMethod === "stripe" ? (
+                  <Link to={"/orders"}>
                     <button className="block w-full py-4 font-bold text-center text-gray-100 uppercase bg-primary/80 rounded-md hover:bg-primary/100">
                       Checkout
                     </button>
                   </Link>
                 ) : (
-                  <button className="block w-full py-4 font-bold text-center text-gray-400 uppercase bg-gray-300 rounded-md ">
+                  <button className="block w-full py-4 font-bold text-center text-gray-400 uppercase bg-gray-300 rounded-md">
                     Checkout
                   </button>
                 )}

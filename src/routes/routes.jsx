@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import CategoryBasedProducts from "../components/AllCategory/CategoryBasedProducts";
+import OrderHistorys from "../components/OrderHistorys";
 import Payment from "../components/Payment";
 import ShoppingCart from "../components/ShoppingCart";
 import MainLayout from "../layout/MainLayout";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "checkout",
         element: <Payment />,
+      },
+      {
+        path: "order-history",
+        element: <OrderHistorys />,
       },
     ],
   },
