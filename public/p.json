@@ -1,0 +1,519 @@
+[
+  {
+    "name": "Elliptical Trainer Alpha",
+    "category": "Elliptical Trainer",
+    "price": 700,
+    "stock": 15,
+    "description": "High-quality elliptical trainer for effective cardio workout.",
+    "images": "https://i.ibb.co/5M0fQNy/Elliptical-Trainer-img2.jpg",
+    "isDeleted": false,
+    "rating": 4.4
+  },
+  {
+    "name": "Walking Pad Beta",
+    "category": "Walking Pad",
+    "price": 550,
+    "stock": 17,
+    "description": "Foldable walking pad with digital display.",
+    "images": "https://i.ibb.co/JjRx9LS/Walking-Pad-img2.jpg",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+  {
+    "name": "Exercise Cycle Alpha",
+    "category": "Exercise Cycle",
+    "price": 400,
+    "stock": 16,
+    "description": "High-performance exercise cycle for intense workouts.",
+    "images": "https://i.ibb.co/XyHxPJN/Exercise-Cycle-img1.png",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "GYM Equipment Alpha",
+    "category": "GYM Equipment",
+    "price": 2000,
+    "stock": 15,
+    "description": "Complete gym equipment set for strength training.",
+    "images": "https://i.ibb.co/TBGnpYC/GYMEquipment-img1.jpg",
+    "isDeleted": false,
+    "rating": 4.5
+  },
+  {
+    "name": "Hex Dumbbells Alpha",
+    "category": "Hex Dumbbells",
+    "price": 100,
+    "stock": 15,
+    "description": "Set of hex dumbbells for strength training.",
+    "images": "https://i.ibb.co/hdd6F7M/Hex-Dumbbells-Img1.png",
+    "isDeleted": false,
+    "rating": 4
+  },
+  {
+    "name": "Jump Rope Alpha",
+    "category": "Jump Rope",
+    "price": 30,
+    "stock": 15,
+    "description": "High-speed jump rope for cardio workouts.",
+    "images": "https://i.ibb.co/bs9QMZg/Jump-Rope-img1.jpg",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+  {
+    "name": "Massage Chair Alpha",
+    "category": "Massage Chair",
+    "price": 1500,
+    "stock": 15,
+    "description": "High-end massage chair for relaxation and therapy.",
+    "images": "https://i.ibb.co/gVpcx4T/Massage-Chair-img1.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+
+  {
+    "name": "Rowing Machine Alpha",
+    "category": "Rowing Machine",
+    "price": 1000,
+    "stock": 19,
+    "description": "High-performance rowing machine for full-body workout.",
+    "images": "https://i.ibb.co/61Ff1tH/Rowing-Machine-img1.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "Treadmills Alpha",
+    "category": "Treadmills",
+    "price": 1200,
+    "stock": 15,
+    "description": "Durable treadmill for intense running workouts.",
+    "images": "https://i.ibb.co/NsMgCbq/Treadmills-img1.png",
+    "isDeleted": false,
+    "rating": 4.4
+  },
+  {
+    "name": "Elliptical Trainer Beta",
+    "category": "Elliptical Trainer",
+    "price": 750,
+    "stock": 17,
+    "description": "Durable elliptical trainer with multiple resistance levels.",
+    "images": "https://i.ibb.co/HPNn0Sc/Elliptical-Trainer-img3.png",
+    "isDeleted": false,
+    "rating": 4.9
+  },
+  {
+    "name": "Elliptical Trainer Gamma",
+    "category": "Elliptical Trainer",
+    "price": 800,
+    "stock": 19,
+    "description": "Advanced elliptical trainer with digital display.",
+    "images": "https://i.ibb.co/FWYtjfd/Elliptical-Trainer-img4.png",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "Elliptical Trainer Delta",
+    "category": "Elliptical Trainer",
+    "price": 850,
+    "stock": 12,
+    "description": "Elliptical trainer with heart rate monitoring.",
+    "images": "https://i.ibb.co/V2s6bj9/Elliptical-Trainer-img5.png",
+    "isDeleted": false,
+    "rating": 4.1
+  },
+  {
+    "name": "Elliptical Trainer Epsilon",
+    "category": "Elliptical Trainer",
+    "price": 900,
+    "stock": 14,
+    "description": "Smooth and quiet elliptical trainer for home use.",
+    "images": "https://i.ibb.co/kMycyFQ/Elliptical-Trainer-img6.png",
+    "isDeleted": false,
+    "rating": 4.3
+  },
+  {
+    "name": "Elliptical Trainer Zeta",
+    "category": "Elliptical Trainer",
+    "price": 950,
+    "stock": 18,
+    "description": "Compact elliptical trainer with space-saving design.",
+    "images": "https://i.ibb.co/SyHnmtQ/Elliptical-Trainer-img7.jpg",
+    "isDeleted": false,
+    "rating": 4.8
+  },
+  {
+    "name": "Elliptical Trainer Eta",
+    "category": "Elliptical Trainer",
+    "price": 1000,
+    "stock": 13,
+    "description": "Elliptical trainer with adjustable incline.",
+    "images": "https://i.ibb.co/7gmyc1R/Elliptical-Trainer-img9.png",
+    "isDeleted": false,
+    "rating": 5
+  },
+
+  {
+    "name": "Exercise Cycle Beta",
+    "category": "Exercise Cycle",
+    "price": 450,
+    "stock": 15,
+    "description": "Durable exercise cycle with adjustable resistance.",
+    "images": "https://i.ibb.co/swwKZzT/Exercise-Cycle-img2.png",
+    "isDeleted": false,
+    "rating": 4.8
+  },
+  {
+    "name": "Exercise Cycle Gamma",
+    "category": "Exercise Cycle",
+    "price": 500,
+    "stock": 18,
+    "description": "Exercise cycle with comfortable seating and ergonomic design.",
+    "images": "https://i.ibb.co/sWzyNnn/Exercise-Cycle-img3.png",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+  {
+    "name": "Exercise Cycle Delta",
+    "category": "Exercise Cycle",
+    "price": 550,
+    "stock": 19,
+    "description": "Advanced exercise cycle with digital display.",
+    "images": "https://i.ibb.co/31rZh1z/Exercise-Cycle-img4.png",
+    "isDeleted": false,
+    "rating": 4.7
+  },
+
+  {
+    "name": "GYM Equipment Beta",
+    "category": "GYM Equipment",
+    "price": 2200,
+    "stock": 17,
+    "description": "High-quality gym equipment for professional use.",
+    "images": "https://i.ibb.co/gRZVQk1/GYMEquipment-img2.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "GYM Equipment Gamma",
+    "category": "GYM Equipment",
+    "price": 2500,
+    "stock": 19,
+    "description": "Durable gym equipment set for home and commercial use.",
+    "images": "https://i.ibb.co/88X4nWJ/GYMEquipment-img3.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "GYM Equipment Delta",
+    "category": "GYM Equipment",
+    "price": 2800,
+    "stock": 12,
+    "description": "Complete gym equipment set with multiple accessories.",
+    "images": "https://i.ibb.co/0Kcbr3d/GYMEquipment-img4.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "GYM Equipment Epsilon",
+    "category": "GYM Equipment",
+    "price": 3000,
+    "stock": 14,
+    "description": "Premium quality gym equipment for all levels of fitness.",
+    "images": "https://i.ibb.co/vQxy69s/GYMEquipment-img5.jpg",
+    "isDeleted": false,
+    "rating": 4.4
+  },
+  {
+    "name": "GYM Equipment Zeta",
+    "category": "GYM Equipment",
+    "price": 3200,
+    "stock": 18,
+    "description": "Compact gym equipment for small spaces.",
+    "images": "https://i.ibb.co/rQ1wkpT/GYMEquipment-img6.jpg",
+    "isDeleted": false,
+    "rating": 4.3
+  },
+  {
+    "name": "GYM Equipment Eta",
+    "category": "GYM Equipment",
+    "price": 3500,
+    "stock": 13,
+    "description": "Advanced gym equipment with adjustable settings.",
+    "images": "https://i.ibb.co/qDD1C4p/GYMEquipment-img7.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "GYM Equipment Theta",
+    "category": "GYM Equipment",
+    "price": 3800,
+    "stock": 11,
+    "description": "Gym equipment set for a full-body workout.",
+    "images": "https://i.ibb.co/1XrFrkN/GYMEquipment-img7.png",
+    "isDeleted": false,
+    "rating": 4.8
+  },
+  {
+    "name": "GYM Equipment Iota",
+    "category": "GYM Equipment",
+    "price": 4000,
+    "stock": 20,
+    "description": "High-end gym equipment for serious fitness enthusiasts.",
+    "images": "https://i.ibb.co/vcC3SzJ/GYMEquipment-img8.jpg",
+    "isDeleted": false,
+    "rating": 4.9
+  },
+
+  {
+    "name": "Hex Dumbbells Beta",
+    "category": "Hex Dumbbells",
+    "price": 120,
+    "stock": 17,
+    "description": "Durable hex dumbbells for intense workouts.",
+    "images": "https://i.ibb.co/1rZn492/Hex-Dumbbells-img2.png",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+  {
+    "name": "Hex Dumbbells Gamma",
+    "category": "Hex Dumbbells",
+    "price": 140,
+    "stock": 19,
+    "description": "Hex dumbbells with ergonomic grip design.",
+    "images": "https://i.ibb.co/C6JQ37W/Hex-Dumbbells-img3.png",
+    "isDeleted": false,
+    "rating": 4.5
+  },
+  {
+    "name": "Hex Dumbbells Delta",
+    "category": "Hex Dumbbells",
+    "price": 160,
+    "stock": 12,
+    "description": "Set of hex dumbbells for home and gym use.",
+    "images": "https://i.ibb.co/F74GHB5/Hex-Dumbbells-img4.png",
+    "isDeleted": false,
+    "rating": 4.8
+  },
+  {
+    "name": "Hex Dumbbells Epsilon",
+    "category": "Hex Dumbbells",
+    "price": 180,
+    "stock": 14,
+    "description": "Premium hex dumbbells for effective training.",
+    "images": "https://i.ibb.co/Z1tF5PF/Hex-Dumbbells-img5.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "Hex Dumbbells Zeta",
+    "category": "Hex Dumbbells",
+    "price": 200,
+    "stock": 18,
+    "description": "High-quality hex dumbbells with non-slip grip.",
+    "images": "https://i.ibb.co/pdZXbd1/Hex-Dumbbells-img6.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "Hex Dumbbells Eta",
+    "category": "Hex Dumbbells",
+    "price": 220,
+    "stock": 13,
+    "description": "Hex dumbbells with adjustable weight settings.",
+    "images": "https://i.ibb.co/3FMqtLr/Hex-Dumbbells-img7.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "Hex Dumbbells Theta",
+    "category": "Hex Dumbbells",
+    "price": 240,
+    "stock": 20,
+    "description": "Durable hex dumbbells for strength and endurance training.",
+    "images": "https://i.ibb.co/3Sd4qFg/Hex-Dumbbells-img8.jpg",
+    "isDeleted": false,
+    "rating": 4.7
+  },
+  {
+    "name": "Hex Dumbbells Iota",
+    "category": "Hex Dumbbells",
+    "price": 260,
+    "stock": 11,
+    "description": "Set of hex dumbbells with high-quality coating.",
+    "images": "https://i.ibb.co/vVyX4HK/Hex-Dumbbells-img9.jpg",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+
+  {
+    "name": "Jump Rope Beta",
+    "category": "Jump Rope",
+    "price": 35,
+    "stock": 17,
+    "description": "Durable jump rope with adjustable length.",
+    "images": "https://i.ibb.co/RYCtRQM/Jump-Rope-img2.jpg",
+    "isDeleted": false,
+    "rating": 4.4
+  },
+  {
+    "name": "Jump Rope Gamma",
+    "category": "Jump Rope",
+    "price": 40,
+    "stock": 19,
+    "description": "Lightweight jump rope for effective cardio training.",
+    "images": "https://i.ibb.co/ThhP0L7/Jump-Rope-img3.jpg",
+    "isDeleted": false,
+    "rating": 4.8
+  },
+  {
+    "name": "Jump Rope Delta",
+    "category": "Jump Rope",
+    "price": 45,
+    "stock": 12,
+    "description": "Adjustable jump rope with ergonomic handles.",
+    "images": "https://i.ibb.co/DfJWp0K/Jump-Rope-img4.jpg",
+    "isDeleted": false,
+    "rating": 4.9
+  },
+  {
+    "name": "Jump Rope Epsilon",
+    "category": "Jump Rope",
+    "price": 50,
+    "stock": 14,
+    "description": "Jump rope with high-quality materials for durability.",
+    "images": "https://i.ibb.co/ssTfdqD/Jump-Rope-img5.png",
+    "isDeleted": false,
+    "rating": 4.9
+  },
+  {
+    "name": "Jump Rope Zeta",
+    "category": "Jump Rope",
+    "price": 55,
+    "stock": 18,
+    "description": "High-speed jump rope with anti-slip handles.",
+    "images": "https://i.ibb.co/Xp0vq8D/Jump-Rope-img6.jpg",
+    "isDeleted": false,
+    "rating": 4.9
+  },
+  {
+    "name": "Jump Rope Eta",
+    "category": "Jump Rope",
+    "price": 60,
+    "stock": 13,
+    "description": "Compact jump rope for travel and easy storage.",
+    "images": "https://i.ibb.co/s65rGz3/Jump-Rope-img7.jpg",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+
+  {
+    "name": "Massage Chair Beta",
+    "category": "Massage Chair",
+    "price": 1600,
+    "stock": 17,
+    "description": "Luxury massage chair with multiple settings.",
+    "images": "https://i.ibb.co/CvKgbkp/Massage-Chair-img2.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "Rowing Machine Alpha",
+    "category": "Rowing Machine",
+    "price": 1000,
+    "stock": 19,
+    "description": "High-performance rowing machine for full-body workout.",
+    "images": "https://i.ibb.co/61Ff1tH/Rowing-Machine-img1.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+
+  {
+    "name": "Treadmills Beta",
+    "category": "Treadmills",
+    "price": 1250,
+    "stock": 17,
+    "description": "Advanced treadmill with digital display.",
+    "images": "https://i.ibb.co/jy6Q7qw/Treadmills-img2.jpg",
+    "isDeleted": false,
+    "rating": 4.2
+  },
+  {
+    "name": "Treadmills Gamma",
+    "category": "Treadmills",
+    "price": 1300,
+    "stock": 19,
+    "description": "Compact treadmill for home use.",
+    "images": "https://i.ibb.co/YByxzfH/Treadmills-img4.jpg",
+    "isDeleted": false,
+    "rating": 4.1
+  },
+  {
+    "name": "Treadmills Delta",
+    "category": "Treadmills",
+    "price": 1350,
+    "stock": 12,
+    "description": "High-quality treadmill with heart rate monitor.",
+    "images": "https://i.ibb.co/wg9tfzH/Treadmills-img5.jpg",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+  {
+    "name": "Treadmills Epsilon",
+    "category": "Treadmills",
+    "price": 1400,
+    "stock": 14,
+    "description": "Treadmill with multiple incline levels.",
+    "images": "https://i.ibb.co/5F2nbtb/Treadmills-img6.png",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+  {
+    "name": "Treadmills Zeta",
+    "category": "Treadmills",
+    "price": 1450,
+    "stock": 18,
+    "description": "Durable treadmill with shock absorption.",
+    "images": "https://i.ibb.co/r4jTcbR/Treadmills-img7.jpg",
+    "isDeleted": false,
+    "rating": 4.7
+  },
+  {
+    "name": "Treadmills Eta",
+    "category": "Treadmills",
+    "price": 1500,
+    "stock": 13,
+    "description": "Advanced treadmill for professional use.",
+    "images": "https://i.ibb.co/QcnNjVT/Treadmills-img8.jpg",
+    "isDeleted": false,
+    "rating": 4.6
+  },
+  {
+    "name": "Treadmills Theta",
+    "category": "Treadmills",
+    "price": 1550,
+    "stock": 20,
+    "description": "Compact treadmill with foldable design.",
+    "images": "https://i.ibb.co/2hKp3fJ/Treadmills-img9.jpg",
+    "isDeleted": false,
+    "rating": 4.8
+  },
+  {
+    "name": "Treadmills Iota",
+    "category": "Treadmills",
+    "price": 1600,
+    "stock": 11,
+    "description": "High-speed treadmill with built-in programs.",
+    "images": "https://i.ibb.co/zST1Rg1/Treadmills-img10.jpg",
+    "isDeleted": false,
+    "rating": 5
+  },
+  {
+    "name": "Walking Pad Alpha",
+    "category": "Walking Pad",
+    "price": 500,
+    "stock": 15,
+    "description": "Compact walking pad for home and office use.",
+    "images": "https://i.ibb.co/4tPfCvD/Walking-Pad-img1.jpg",
+    "isDeleted": false,
+    "rating": 5
+  }
+]

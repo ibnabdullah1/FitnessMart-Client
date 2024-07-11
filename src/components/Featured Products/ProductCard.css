@@ -1,0 +1,7 @@
+.productCard-container:hover img {
+  transform: scale(1.1);
+}
+
+.productCard-container img {
+  transition: transform 0.3s ease;
+}
