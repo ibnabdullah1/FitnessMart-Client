@@ -8,6 +8,8 @@ import UpdateProduct from "../components/Products/UpdateProduct";
 import ShoppingCart from "../components/ShoppingCart";
 import MainLayout from "../layout/MainLayout";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import Team from "../pages/AboutUs/Team";
+import Contact from "../pages/Contact";
 import Home from "../pages/Home/Home";
 import ProductDetails from "../pages/Poducts/ProductDetails";
 import Products from "../pages/Poducts/Products/Products";
@@ -45,13 +47,17 @@ export const router = createBrowserRouter([
         path: "products/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:1000/api/products/${params.id}`),
+          fetch(
+            `https://fitness-mart-server.vercel.app/api/products/${params.id}`
+          ),
       },
       {
         path: "products/update/:id",
         element: <UpdateProduct />,
         loader: ({ params }) =>
-          fetch(`http://localhost:1000/api/products/${params.id}`),
+          fetch(
+            `https://fitness-mart-server.vercel.app/api/products/${params.id}`
+          ),
       },
       {
         path: "products/category/:category",
@@ -64,6 +70,14 @@ export const router = createBrowserRouter([
       {
         path: "order-history",
         element: <OrderHistorys />,
+      },
+      {
+        path: "contact-us",
+        element: <Contact />,
+      },
+      {
+        path: "our-team",
+        element: <Team />,
       },
     ],
   },

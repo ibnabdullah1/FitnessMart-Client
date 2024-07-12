@@ -72,7 +72,7 @@ const ProductsList = () => {
             </thead>
 
             <tbody>
-              {products.data.map((item, i) => (
+              {products?.data?.map((item, i) => (
                 <tr key={i} className="border-b text-[15px]">
                   <td className="px-3 md:px-5 py-3">
                     <div className="flex items-center gap-4">

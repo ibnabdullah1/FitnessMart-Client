@@ -12,6 +12,7 @@ const Products = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
   const [priceRange, setPriceRange] = useState([0, 5000]);
+
   if (isLoading) {
     return <Loading />;
   }
@@ -22,14 +23,14 @@ const Products = () => {
 
   const filteredProducts = products?.data
     .filter((product) => {
-      const matchesSearch = product.name
+      const matchesSearch = product?.name
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
       const matchesCategory =
-        selectedCategories.length === 0 ||
-        selectedCategories.includes(product.category);
+        selectedCategories?.length === 0 ||
+        selectedCategories?.includes(product.category);
       const matchesPrice =
-        product.price >= priceRange[0] && product.price <= priceRange[1];
+        product?.price >= priceRange[0] && product?.price <= priceRange[1];
       return matchesSearch && matchesCategory && matchesPrice;
     })
     .sort((a, b) => {
@@ -82,7 +83,7 @@ const Products = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-        {filteredProducts.map((product, i) => (
+        {filteredProducts?.map((product, i) => (
           <FeaturedProductCard key={i} product={product} />
         ))}
       </div>

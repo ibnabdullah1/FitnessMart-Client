@@ -86,11 +86,16 @@ const Navbar = () => {
                   <span>Order History</span>
                 </Link>
               </li>
+              <li className={`${currentPathname === "our-team" && "active"} `}>
+                <Link to={"/our-team"} className="cursor-pointer">
+                  <span>Our Team</span>
+                </Link>
+              </li>
             </ul>
           </li>
 
-          <li>
-            <Link to="/">Contact Us</Link>
+          <li className={`${currentPathname === "contact-us" && "active"}`}>
+            <Link to="/contact-us">Contact Us</Link>
           </li>
         </ul>
       </div>
