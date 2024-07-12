@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { useUpdateProductStockFromOrderMutation } from "../redux/features/productApi/productApi";
 import useAxiosPublic from "../utils/useAxiosPublic";
 import useCart from "../utils/useCart";
 
@@ -12,6 +13,8 @@ const CheckoutForm = () => {
   const subTotal = Number(
     cartProducts.reduce((acc, item) => acc + item?.subtotal, 0).toFixed(0)
   );
+  const [updateProductStockFromOrder] =
+    useUpdateProductStockFromOrderMutation();
   const navigate = useNavigate();
   const shippingCost = subTotal >= 1 ? 20 : 0;
   const totalCost = subTotal + shippingCost;
@@ -94,6 +97,7 @@ const CheckoutForm = () => {
       handleClearShoppingCart();
       navigate("/order-history");
       toast.success("Payment successful");
+      updateProductStockFromOrder(orderData);
       setLoading(false);
     }
   };

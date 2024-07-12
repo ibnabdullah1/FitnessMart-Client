@@ -143,12 +143,30 @@
 .header-right .open-menu-btn {
   display: none;
 }
+/* Active route styles */
+.header .menu > ul > li.active > a {
+  color: #79c044;
+  background-size: 100% 1.5px;
+}
+.header .menu .sub-menu li.active > a > span {
+  color: #79c044;
+  background-size: 100% 1.5px;
+}
 
 @media (max-width: 959px) {
   .header {
     width: 100%;
+    padding: 6px 10px;
   }
-
+  /* Active route styles */
+  .header .menu > ul > li.active > a {
+    color: #ffffff;
+    background-size: 100% 1.5px;
+  }
+  .header .menu .sub-menu li.active > a > span {
+    color: #ffffff;
+    background-size: 100% 1.5px;
+  }
   .header .menu {
     position: fixed;
     right: 0;

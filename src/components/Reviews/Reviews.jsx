@@ -10,7 +10,7 @@ import ReviewsCard from "./ReviewsCard";
 
 const Reviews = () => {
   return (
-    <div className="reviewContainer pt-2 lg:px-10 px-10 pb-16 ">
+    <div className="reviewContainer pt-2 lg:px-10 px-10 ">
       <div className=" max-w-7xl mx-auto pt-2 pb-16 ">
         <div className="flex bg justify-between items-start py-8">
           <h2 className="text-md md:text-2xl lg:text-[1.75rem] font-semibold  text-secondary ">

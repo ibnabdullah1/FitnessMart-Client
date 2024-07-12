@@ -107,6 +107,11 @@ const useCart = () => {
       const existingItemIndex = cartData?.findIndex((item) => item._id === id);
       const existingItem = cartData[existingItemIndex];
       const isExistItem = cartData?.find((item) => item._id === id);
+      console.log("114", isExistItem.stock, decreaseQuantity);
+      console.log(!!decreaseQuantity > isExistItem.stock);
+      if (decreaseQuantity > isExistItem.stock) {
+        return toast.error("The quantity not available in the stock");
+      }
       cartData[existingItemIndex] = {
         ...existingItem,
         itemQuantity: decreaseQuantity,

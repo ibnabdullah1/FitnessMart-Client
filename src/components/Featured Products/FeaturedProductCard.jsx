@@ -2,12 +2,13 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 const FeaturedProductCard = ({ product }) => {
-  const { images, name, description, rating, stock, price, _id } = product;
+  const { images, name, description, rating, stock, price, _id, category } =
+    product;
 
   return (
     <Link
       to={`/products/${_id}`}
-      className="productCard-container relative flex flex-col justify-between rounded-md border hover:border-primary border-[#2626264b] py-8 px-4 space-y-2"
+      className="productCard-container relative flex flex-col justify-between rounded-md border hover:border-primary border-[#2626264b] py-8 px-4 space-y-1"
     >
       <div className="absolute text-white z-10 top-2 right-2 bg-[#171717] px-2  py-1">
         Stock:{stock}
@@ -20,6 +21,7 @@ const FeaturedProductCard = ({ product }) => {
         />
       </div>
       <h2 className="text-lg  font-semibold text-primary">{name}</h2>
+      <h2 className="text-base text-secondary mt-1">Category: {category}</h2>
 
       <p className="text-base  text-secondary/70">{description}</p>
       <div className="flex justify-between items-center">

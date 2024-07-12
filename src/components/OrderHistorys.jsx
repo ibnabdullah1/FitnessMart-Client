@@ -24,8 +24,8 @@ const OrderHistorys = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-10 py-16">
-      <h1 className="my-5 px-8 text-2xl font-bold text-secondary md:text-4xl text-center ">
+    <div className="max-w-7xl mx-auto px-5 lg:px-10 pt-4 pb-16">
+      <h1 className="mt-5 mb-8 px-8 text-2xl font-bold text-secondary md:text-4xl text-center ">
         Order History
       </h1>
       <div className="overflow-x-auto  bg-white border rounded ">

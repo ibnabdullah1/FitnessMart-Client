@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { CartDrawer } from "../DrawerCart/CartDrawer";
 import "./Navbar.css";
@@ -8,6 +8,8 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmenu, setIsSubmenu] = useState(false);
+  const { pathname } = useLocation();
+  const currentPathname = pathname.split("/")[1];
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -32,104 +34,56 @@ const Navbar = () => {
           ></button>
         </div>
         <ul>
-          <li>
+          <li className={`${currentPathname === "" && "active"}`}>
             <Link to="/">Home</Link>
           </li>
 
-          <li>
-            <Link to="/">About Us</Link>
-          </li>
-          <li
-            onClick={toggleSubmenu}
-            className={`dropdown ${isSubmenu ? "active  " : ""}`}
-          >
-            <Link className="cursor-pointer">Categories</Link>
-            <IoChevronDown className="i" />
-            <ul className="sub-menu">
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Elliptical Trainer</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Hex Dumbbells</span>
-                </Link>
-              </li>
-
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Walking Pad</span>
-                </Link>
-              </li>
-
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Treadmills</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Rowing Machine</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Massage Chair</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Jump Rope</span>
-                </Link>
-              </li>
-
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>GYM Equipment</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Exercise Cycle</span>
-                </Link>
-              </li>
-            </ul>
+          <li className={`${currentPathname === "about-us" && "active"}`}>
+            <Link to="/about-us">About Us</Link>
           </li>
 
-          <li>
+          <li className={`${currentPathname === "products" && "active"}`}>
             <Link to="/products">Products</Link>
           </li>
           <li
             onClick={toggleSubmenu}
-            className={`dropdown ${isSubmenu ? "active  " : ""}`}
+            className={`dropdown ${isSubmenu ? "active" : ""}`}
           >
             <Link className="cursor-pointer">Pages</Link>
             <IoChevronDown className="i" />
             <ul className="sub-menu">
-              <li className="">
+              <li
+                className={`${
+                  currentPathname === "product-management" && "active"
+                } `}
+              >
+                <Link to={"/product-management"} className="cursor-pointer">
+                  <span>Product Management</span>
+                </Link>
+              </li>
+              <li
+                className={`${currentPathname === "add-product" && "active"} `}
+              >
+                <Link to={"/add-product"} className="cursor-pointer">
+                  <span>Add Product</span>
+                </Link>
+              </li>
+              <li
+                className={`${
+                  currentPathname === "shopping-cart" && "active"
+                } `}
+              >
                 <Link to={"/shopping-cart"} className="cursor-pointer">
                   <span>Shopping Cart</span>
                 </Link>
               </li>
-              <li className="">
-                <Link to={"/payment-history"} className="cursor-pointer">
-                  <span>Payment History</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>FAQ</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Blog</span>
-                </Link>
-              </li>
-              <li className="">
-                <Link className="cursor-pointer">
-                  <span>Testimonials</span>
+              <li
+                className={`${
+                  currentPathname === "order-history" && "active"
+                } `}
+              >
+                <Link to={"/order-history"} className="cursor-pointer">
+                  <span>Order History</span>
                 </Link>
               </li>
             </ul>

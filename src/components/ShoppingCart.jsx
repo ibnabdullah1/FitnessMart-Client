@@ -5,6 +5,7 @@ import { FaStripe } from "react-icons/fa6";
 import { RxCross2, RxMinus, RxPlus } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useUpdateProductStockFromOrderMutation } from "../redux/features/productApi/productApi";
 import useCart from "../utils/useCart";
 import SectionBanner from "./SectionBanner";
 
@@ -21,7 +22,8 @@ const ShoppingCart = () => {
   const total = Number(
     cartProducts.reduce((acc, item) => acc + item?.subtotal, 0).toFixed(0)
   );
-
+  const [updateProductStockFromOrder] =
+    useUpdateProductStockFromOrderMutation();
   const shippingCost = total >= 1 ? 20 : 0;
 
   const handleDelete = (id) => {
@@ -67,6 +69,7 @@ const ShoppingCart = () => {
     };
     handleCompleteOrder(orderData);
     navigate("/order-history");
+    updateProductStockFromOrder(orderData);
   };
 
   return (
@@ -256,7 +259,7 @@ const ShoppingCart = () => {
                     Place Order
                   </button>
                 ) : cartProducts.length > 0 && paymentMethod === "stripe" ? (
-                  <Link to={"/orders"}>
+                  <Link to={"/checkout"}>
                     <button className="block w-full py-4 font-bold text-center text-gray-100 uppercase bg-primary/80 rounded-md hover:bg-primary/100">
                       Checkout
                     </button>
