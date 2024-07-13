@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FeaturedProductCard from "../../../components/Featured Products/FeaturedProductCard";
 import Loading from "../../../components/Loading";
 import FilterCategoryDropdown from "../../../components/Products/FilterCategoryDropdown";
 import PriceRangeFilter from "../../../components/Products/PriceRangeFilter";
 import SortProduct from "../../../components/Products/SortProduct";
 import { useGetAllProductsQuery } from "../../../redux/features/productApi/productApi";
+import { debounce } from "../../../utils/debounce";
 
 const Products = () => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
   const [priceRange, setPriceRange] = useState([0, 5000]);
+
+  useEffect(() => {
+    const handler = debounce(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 1000);
+    handler();
+  }, [searchTerm]);
 
   if (isLoading) {
     return <Loading />;
@@ -25,7 +34,7 @@ const Products = () => {
     .filter((product) => {
       const matchesSearch = product?.name
         .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+        .includes(debouncedSearchTerm.toLowerCase());
       const matchesCategory =
         selectedCategories?.length === 0 ||
         selectedCategories?.includes(product.category);
@@ -42,8 +51,8 @@ const Products = () => {
     });
 
   return (
-    <div className="max-w-7xl  px-10 mx-auto py-14">
-      <div className=" flex flex-col gap-4 mb-6">
+    <div className="max-w-7xl px-10 mx-auto py-14">
+      <div className="flex flex-col gap-4 mb-6">
         <input
           type="text"
           placeholder="Search products by name"
@@ -60,7 +69,6 @@ const Products = () => {
           <SortProduct setSortOrder={setSortOrder} sortOrder={sortOrder} />
         </div>
         <div className="md:flex justify-between items-center">
-          {" "}
           <PriceRangeFilter
             min={0}
             max={5000}

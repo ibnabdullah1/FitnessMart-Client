@@ -16,11 +16,11 @@ const ProductDetails = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-10 py-10">
-      <div className="flex  justify-between items-start">
-        <div className="w-[55%]  px-10">
+      <div className="lg:flex  justify-between items-start">
+        <div className="lg:w-[55%] mb-4 lg:mb-0 px-10">
           <img src={data.images} alt="" className="w-full" />
         </div>
-        <div className="text-left w-[45%]">
+        <div className="text-left lg:w-[45%]">
           <h2 className="uppercase font-medium tracking-[3px]">
             {data.category}
           </h2>

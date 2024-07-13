@@ -1,14 +1,48 @@
+import { useState } from "react";
+import { BsCashCoin } from "react-icons/bs";
+import { FaStripe } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUpdateProductStockFromOrderMutation } from "../../redux/features/productApi/productApi";
+import useCart from "../../utils/useCart";
 
 const CartItem = ({ cartProducts, handleDeleteToCart }) => {
+  const { handleCompleteOrder } = useCart();
+  const navigate = useNavigate();
+  const [updateProductStockFromOrder] =
+    useUpdateProductStockFromOrderMutation();
+  const [paymentMethod, setPaymentMethod] = useState("");
   const Subtotal = cartProducts?.reduce(
     (acc, product) => acc + product.price * product.itemQuantity,
     0
   );
   const shippingCost = Subtotal >= 1 ? 20 : 0;
   const total = Subtotal + shippingCost;
-
+  const cashOnDeliveryOrder = () => {
+    const orderData = {
+      orderId: "Unpaid",
+      items: cartProducts.map((product) => ({
+        productId: product._id,
+        name: product.name,
+        quantity: product.itemQuantity,
+        price: product.price,
+        total: product.itemQuantity * product.price,
+      })),
+      payment: {
+        method: "Cash on Delivery",
+        status: "Pending",
+      },
+      orderStatus: "Processing",
+      orderDate: new Date().toISOString(),
+      totalAmount: cartProducts.reduce(
+        (acc, product) => acc + product.itemQuantity * product.price,
+        0
+      ),
+    };
+    handleCompleteOrder(orderData);
+    navigate("/order-history");
+    updateProductStockFromOrder(orderData);
+  };
   return (
     <div className=" bg-white">
       {cartProducts?.map(
@@ -64,11 +98,49 @@ const CartItem = ({ cartProducts, handleDeleteToCart }) => {
           .00
         </p>
       </div>
-      <Link to={"/checkout"}>
-        <button className="inline-block w-full px-5 mt-4 py-3 text-sm font-medium text-white  border border-primary bg-primary transform duration-200 rounded active:text-primary  hover:bg-transparent hover:text-primary focus:outline-none focus:ring">
+      <div className="space-y-2 py-4">
+        <label className="has-[:checked]:bg-white/30 border border-secondary/10 has-[:checked]:text-primary has-[:checked]:ring-none has-[:checked]:ring-1 has-[:checked]:ring-primary cursor-pointer py-2 px-4 rounded-md flex gap-3 items-center">
+          <input
+            type="radio"
+            name="payment"
+            onClick={() => setPaymentMethod("cash")}
+            className="checked:border-primary h-5 w-5"
+          />
+          <div className="flex items-center gap-3">
+            <BsCashCoin />
+            <h2 className="text-lg">Cash On Delivery</h2>
+          </div>
+        </label>
+        <label className="has-[:checked]:bg-white/30 border border-secondary/10 has-[:checked]:text-primary has-[:checked]:ring-none has-[:checked]:ring-1 has-[:checked]:ring-primary cursor-pointer py-2 px-4 rounded-md flex gap-3 items-center">
+          <input
+            type="radio"
+            name="payment"
+            onClick={() => setPaymentMethod("stripe")}
+            className="checked:border-primary h-5 w-5"
+          />
+          <div className="flex items-center gap-3">
+            <FaStripe className="text-3xl" />
+          </div>
+        </label>
+      </div>
+      {cartProducts?.length > 0 && paymentMethod === "cash" ? (
+        <button
+          onClick={cashOnDeliveryOrder}
+          className="block w-full py-4 font-bold text-center text-gray-100 uppercase bg-primary/80 rounded-md hover:bg-primary/100"
+        >
+          Place Order
+        </button>
+      ) : cartProducts?.length > 0 && paymentMethod === "stripe" ? (
+        <Link to={"/checkout"}>
+          <button className="block w-full py-4 font-bold text-center text-gray-100 uppercase bg-primary/80 rounded-md hover:bg-primary/100">
+            Checkout
+          </button>
+        </Link>
+      ) : (
+        <button className="block w-full py-4 font-bold text-center text-gray-400 uppercase bg-gray-300 rounded-md">
           Checkout
         </button>
-      </Link>
+      )}
     </div>
   );
 };

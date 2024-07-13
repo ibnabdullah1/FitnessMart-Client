@@ -41,7 +41,7 @@ const SortProduct = ({ setSortOrder }) => {
         onClick={toggleOpen}
       >
         <p className="text-[15px]">
-          {selectOption ? selectOption : "Price High to Low"}
+          {selectOption ? selectOption : "Price Low to High"}
         </p>
         <IoMdArrowDropdown
           className={`transition-transform duration-300 ${
